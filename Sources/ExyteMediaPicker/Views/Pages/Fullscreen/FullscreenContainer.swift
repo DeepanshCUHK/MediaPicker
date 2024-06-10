@@ -84,20 +84,20 @@ struct FullscreenContainer: View {
             Spacer()
 
             if let selectedMediaModel = selectedMediaModel {
-                if selectionParamsHolder.selectionLimit == 1 {
-                    Button("Select") {
-                        selectionService.onSelect(assetMediaModel: selectedMediaModel)
-                        shouldDismiss()
-                    }
-                    .padding([.horizontal, .bottom], 20)
-                } else {
+                // if selectionParamsHolder.selectionLimit == 1 {
+                //     Button("Select") {
+                //         selectionService.onSelect(assetMediaModel: selectedMediaModel)
+                //         shouldDismiss()
+                //     }
+                //     .padding([.horizontal, .bottom], 20)
+                // } else {
                     SelectIndicatorView(index: selectionServiceIndex, isFullscreen: true, canSelect: selectionService.canSelect(assetMediaModel: selectedMediaModel), selectionParamsHolder: selectionParamsHolder)
                         .padding([.horizontal, .bottom], 20)
                         .contentShape(Rectangle())
                         .onTapGesture {
                             selectionService.onSelect(assetMediaModel: selectedMediaModel)
                         }
-                }
+                // }
             }
         }
         .foregroundStyle(theme.selection.fullscreenTint)
